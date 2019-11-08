@@ -1,11 +1,3 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
-
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -37,11 +29,17 @@ p {
   #index-banner .section {
     top: 10%;
   }
+  body {
+    font-size: 24px;
+  }
 }
 
 @media only screen and (max-width : 600px) {
   #index-banner .section {
     top: 0;
+  }
+  body {
+    font-size: 24px;
   }
 }
 
@@ -54,4 +52,8 @@ p {
 
 footer.page-footer {
   margin: 0;
+}
+
+.container {
+  cursor: context-menu;
 }
