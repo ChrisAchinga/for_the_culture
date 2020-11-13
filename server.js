@@ -1,9 +1,23 @@
-import express from 'express'
+const express = require('express')
+const path = require('path')
+const books = require('./Books')
 
 const app = express()
+const PORT = process.env.PORT || 3000
 
-app.get('/', (req, res) => {
-    res.send('popo')
+// rest api
+app.get('/books/list/all', (req, res) => {
+  res.json(books)
 })
 
-app.listen(1557, console.log('running'))
+// get a single book by id
+app.get('/books/list/:id', (req, res) => {
+  res.json(books.filter((book) => book.id === parseInt(req.params.id)))
+})
+
+// set static folder
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.listen(PORT, () => {
+  console.log(`Server has started on PORT ${PORT}`)
+})
